@@ -57,6 +57,8 @@ Strikethrough uses two tildes. ~~Scratch this.~~
 
 ---
 
+![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210107220315.jpg)
+
 ## Links
 
 [I'm an inline-style link](https://www.google.com)
