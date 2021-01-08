@@ -231,13 +231,11 @@ PS：某些电脑在安装过程中会出现configure UEFI Secure Boot的窗口�
 
 realsense-viewer
 
-如果弹出来这样一个窗口，就说明暂时成功了。
-![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082635.png)
+如果弹出来这样一个窗口，就说明暂时成功了。![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082635.png)
 
 但是这个相机有个挺苟的问题，那就是他只能用USB3.0的typeC线，用普通的充电线是用不了的，像刚刚上面那张图就是用的普通充电线。
 
-下面是USB3.0线的界面，会看到左边显示了参数：
-![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108083140.png)
+下面是USB3.0线的界面，会看到左边显示了参数：![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108083140.png)
 
 
 ---
@@ -370,6 +368,7 @@ realsense-viewer
 
 参考的是这条csdn链接里的参考链接：https://blog.csdn.net/weixin_43793181/article/details/103186041?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161000787716780258076340%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=161000787716780258076340&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v1~rank_blog_v1-2-103186041.pc_v1_rank_blog_v1&utm_term=%E7%9B%B8%E6%9C%BA&spm=1018.2226.3001.4450
 
+{
 
 #include<iostream>
  
@@ -634,10 +633,11 @@ int main()
     
 }
 
+}
 
 
-人间奇迹现场：
-![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082635.png)
+
+人间奇迹现场：![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082635.png)
 
 
 
