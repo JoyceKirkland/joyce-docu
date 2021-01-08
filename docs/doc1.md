@@ -371,17 +371,17 @@ realsense-viewer
 参考的是这条csdn链接里的参考链接：https://blog.csdn.net/weixin_43793181/article/details/103186041?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161000787716780258076340%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=161000787716780258076340&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v1~rank_blog_v1-2-103186041.pc_v1_rank_blog_v1&utm_term=%E7%9B%B8%E6%9C%BA&spm=1018.2226.3001.4450
 
 
-#include <iostream>
+#include<iostream>
  
-#include <sstream>
+#include<sstream>
  
-#include <iostream>
+#include<iostream>
  
-#include <fstream>
+#include<fstream>
  
-#include <algorithm>
+#include<algorithm>
  
-#include <string>
+#include<string>
  
 #include<opencv2/imgproc/imgproc.hpp>
 
@@ -404,6 +404,7 @@ using namespace rs2;
 float get_depth_scale(device dev)
 
 {
+
     for (sensor& sensor : dev.query_sensors()) //检查设备的传感器
     
     {
@@ -636,8 +637,6 @@ int main()
 
 
 人间奇迹现场：
-
-
 ![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082635.png)
 
 
