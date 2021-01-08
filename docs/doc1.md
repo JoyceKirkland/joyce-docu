@@ -3,9 +3,6 @@ id: doc1
 title: ubuntu18.04(20通用)安装REALSENSE D435深度相机驱动
 sidebar_label: ubuntu18.04realsense D435驱动安装 realsense D435深度相机
 ---
-![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082635.png)
-![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108083140.png)
-![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082635.png)
 
 ## 亿些tips：
 原版安装教程（官网）https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md
