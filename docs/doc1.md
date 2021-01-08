@@ -95,7 +95,7 @@ cd /home/joyce/github/librealsense    //cd进你的librealsense目录
 具有LTS内核的Ubuntu14/16/18：
 
 ./scripts/patch-realsense-ubuntu-lts.sh
- 
+   
  
 带有Ubuntu的Intel®Joule™基于Canonical Ltd.提供的自定义内核。
 
