@@ -20,34 +20,55 @@ sidebar_label: ubuntu18.04realsense D435驱动安装 realsense D435深度相机
 ---
 
 一、老规矩先更新
+
 如果你的系统有一更新就炸的危险，建议再三考虑后再更新，或者只update不upgrade。
+
+
 sudo apt-get update
+
 sudo apt-get upgrade
+
+
 原链接里有更新内核和重新引导的过程，因为是针对ubuntu14.04的版本的我就没跑（个人觉得没必要，当然不排除以后会有坑）
 
 ---
 
 二、下载/克隆librealsense github存储库：
+
 这里我只跑了第一条orz没看到第二条上面写的最新版本，这里建议下第二条的版本。
+
 
 git clone https://github.com/IntelRealSense/librealsense.git
 
 从master分支下载并解压缩最新的稳定版本https://github.com/IntelRealSense/librealsense/archive/master.zip
 
+
 ---
 三、准备环境
+
 1、记得拔摄像头
 
 2、安装构建librealsense二进制文件和受影响的内核模块所需的核心软件包：
+
 （原链接里的下面这一步我没跑，我直接跑了特定18的版本去了，目前没有坑）
+
+
 sudo apt-get install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
 
+
 下面这一步必须跑，这是特定于ubuntu18的软件包：
+
+
 sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at
 
+
+
 原链接里有个cmake注意，同样没跑这一步目前没坑
+
 cmake注意：某些librealsense CMAKE标志（例如CUDA）要求版本3.8+，而该版本目前无法通过apt Manager获得Ubuntu LTS的支持。
+
 转到官方CMake网站下载并安装该应用程序
+
 原链接原话注意：关于图形子系统利用率的注意事项：如果您计划构建SDK的启用OpenGL的示例，则需要glfw3，mesa和gtk软件包。该librealsense核心库和一系列演示/工具是专为无头环境中进行部署。
 
 3、从librealsense根目录运行Intel Realsense权限脚本：
@@ -76,28 +97,44 @@ echo 'hid_sensor_custom' | sudo tee -a /etc/modules
 
 ---
 四、编译librealsense2 SDK
+
 原链接有一个在ubuntu14.04上将构建工具更新为gcc-5，但是按道理ubuntu18.04的gcc已经是gcc-11了，所以我觉得没必要，没跑且目前没坑。
 
+
 mkdir build		//创建一个名为build的文件夹
+
 cd build			//cd进去，注意这两步一定要在librealsense2目录下
 
 运行cmake：
+
 1、这一步将默认版本设置为在调试模式下生成核心共享库和单元测试二进制文件。用于-DCMAKE_BUILD_TYPE=Release优化构建。
+
 cmake ../ 		
 
+
 2、构建librealsense以及演示和教程
+
 cmake ../ -DBUILD_EXAMPLES=true
 
+
 3、这一步对于没有OpenGL或X11的系统，仅构建文本示例
+
 cmake ../ -DBUILD_EXAMPLES=true -DBUILD_GRAPHICAL_EXAMPLES=false
 
+
 4、重新编译并安装librealsense二进制文件：
+
 共享对象将安装在/usr/local/lib中的头文件中/usr/local/include。
+
 二进制演示，教程和测试文件将被复制到/usr/local/bin。
 
+
 sudo make uninstall
+
 make clean
+
 sudo make install
+
 
 5、make -jX并行编译，X代表cpu核心可用数量
 原链接内容：
