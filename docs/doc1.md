@@ -1,5 +1,5 @@
 ---
-id: joyceKirkalnd
+id: doc1
 title: ubuntu18.04(20通用)安装REALSENSE D435深度相机驱动
 sidebar_label: ubuntu18.04realsense D435驱动安装 realsense D435深度相机
 ---
