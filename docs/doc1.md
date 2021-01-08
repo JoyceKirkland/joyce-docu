@@ -17,22 +17,6 @@ sidebar_label: ubuntu18.04realsense D435驱动安装 realsense D435深度相机
 欢迎大佬指正！
 
 
-To serve as an example page when styling markdown based Docusaurus sites.
-
-## Headers
-
-# H1 - Create the best documentation
-
-## H2 - Create the best documentation
-
-### H3 - Create the best documentation
-
-#### H4 - Create the best documentation
-
-##### H5 - Create the best documentation
-
-###### H6 - Create the best documentation
-
 ---
 
 一、老规矩先更新
