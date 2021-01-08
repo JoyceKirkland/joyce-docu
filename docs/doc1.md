@@ -226,7 +226,7 @@ PS：某些电脑在安装过程中会出现configure UEFI Secure Boot的窗口�
 ```
 realsense-viewer
 ```
-如果弹出来这样一个窗口，就说明暂时成功了。![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082635.png)
+如果弹出来这样一个窗口，就说明暂时成功了。![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082517.png)
 
 但是这个相机有个挺苟的问题，那就是他只能用USB3.0的typeC线，用普通的充电线是用不了的，像刚刚上面那张图就是用的普通充电线。
 
