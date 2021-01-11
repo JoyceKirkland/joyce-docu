@@ -71,6 +71,7 @@ sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at
 ```
 
 
+
 原链接里有个 cmake 注意，同样没跑这一步目前没坑
 
 cmake 注意：某些 librealsense CMAKE 标志（例如 CUDA ）要求版本 3.8+ ，而该版本目前无法通过 apt Manager 获得 Ubuntu LTS 的支持。
@@ -78,6 +79,8 @@ cmake 注意：某些 librealsense CMAKE 标志（例如 CUDA ）要求版本 3.
 转到官方CMake网站下载并安装该应用程序
 
 原链接原话注意：关于图形子系统利用率的注意事项：如果您计划构建 SDK 的启用 OpenGL 的示例，则需要 glfw3,mesa 和 gtk 软件包。该 librealsense 核心库和一系列演示/工具是专为无头环境中进行部署。
+
+
 
 3、从 librealsense 根目录运行 Intel Realsense 权限脚本：
 ```
@@ -88,6 +91,7 @@ cd /home/joyce/github/librealsense    //cd进你的librealsense目录
 
 注意：始终可以通过运行以下命令删除权限：./scripts/setup_udev_rules.sh --uninstall
 ```
+
 
 
 4、为以下应用程序构建和应用修补的内核模块：
@@ -113,6 +117,7 @@ cd /home/joyce/github/librealsense    //cd进你的librealsense目录
 如果失败，将还原原始 uvc 模块。
 
 原链接有一个基于 Arch 的发行版还有一个带有 ubuntu16.04 的一个 Odroid XU4 图像，同样没跑目前没坑
+
 
 
 5、TM1特定
@@ -143,16 +148,19 @@ cd build			//cd进去，注意这两步一定要在librealsense2目录下
 cmake ../ 		
 ```
 
+
 2、构建 librealsense 以及演示和教程
 ```
 cmake ../ -DBUILD_EXAMPLES=true
 ```
+
 
 3、这一步对于没有 OpenGL 或 X11 的系统，仅构建文本示例
 
 ```
 cmake ../ -DBUILD_EXAMPLES=true -DBUILD_GRAPHICAL_EXAMPLES=false
 ```
+
 
 4、重新编译并安装 librealsense 二进制文件：
 
@@ -169,6 +177,7 @@ make clean
 
 sudo make install
 ```
+
 
 
 5、make -jX 并行编译，X 代表 cpu 核心可用数量
@@ -203,6 +212,7 @@ sudo make install
 sudo apt-key adv --keyserver keys.gnupg.net --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE || sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-key F6E65AC044F831AC80A06380C8B3A55A6F3EFCDE
 ```
 
+
 2、添加包仓库列表：
 
 Ubuntu 18 LTS：
@@ -210,10 +220,12 @@ Ubuntu 18 LTS：
 sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main" -u
 ```
 
+
 3、安装库以及开发包：
 ```
 sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/apt-repo xenial main" -u
 ```
+
 
 csdn 链接原话：至此，驱动包安装完成，使用以下命令可以打开 RealSense 的预览插件，连接相机即可查看设备输出。
 
@@ -268,6 +280,7 @@ realsense-viewer
 }
 ```
 
+
 2、tasks.json文件
 
 找到 librealsense2.so 文件的目录，同样复制进去就行
@@ -309,6 +322,7 @@ realsense-viewer
 ```
 
 ---
+
 
 然后下面是测试代码（后面更新一个短一点又能显示出来的
 
