@@ -4,7 +4,7 @@ title: ubuntu18.04 ( 20 通用)安装 REALSENSE D435 深度相机驱动
 sidebar_label: ubuntu18.04realsense D435驱动安装 realsense D435深度相机
 ---
 
-## 亿些tips：
+## 亿些tips
 原版安装教程（官网）：
 
 https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md
@@ -71,9 +71,9 @@ sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at
 ```
 
 
-原链接里有个cmake注意，同样没跑这一步目前没坑
+原链接里有个 cmake 注意，同样没跑这一步目前没坑
 
-cmake注意：某些librealsense CMAKE标志（例如CUDA）要求版本 3.8+ ，而该版本目前无法通过 apt Manager 获得 Ubuntu LTS 的支持。
+cmake 注意：某些 librealsense CMAKE 标志（例如 CUDA ）要求版本 3.8+ ，而该版本目前无法通过 apt Manager 获得 Ubuntu LTS 的支持。
 
 转到官方CMake网站下载并安装该应用程序
 
@@ -195,7 +195,7 @@ sudo make install
 
 ------------------
 接下来是第二条参考链接的教程，同样只跑了一部分，目前没坑。
-## 亿些补充命令运行
+## 五、亿些补充命令运行
 
 1、注册公钥：
 
@@ -232,7 +232,7 @@ realsense-viewer
 
 
 ---
-## 开始配置vscode
+## 六、开始配置vscode
 
 1、因为我有用到 opencv，所以我有一个 cpp_properties.json 文件（其实就是放头文件的地方）
 
