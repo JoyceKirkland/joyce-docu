@@ -1,12 +1,12 @@
 ---
 id: doc1
-title: 如何为安装 D435 深度相机驱动
+title: 如何为 D435 深度相机安装驱动
 sidebar_label: Ubuntu18.04realsense D435驱动安装 realsense D435深度相机
 ---
 
 ## 亿些tips：
 
-1、此教程适用于 Ubuntu18.04 / Ubuntu20.04 系统。
+1、此教程适用于 Ubuntu18.04 / Ubuntu20.04 版本的系统。
 
 2、原版安装教程（官网）：
 
@@ -15,7 +15,7 @@ sidebar_label: Ubuntu18.04realsense D435驱动安装 realsense D435深度相机
 ## https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md
 
 
-3、因为原教程上面还是写的 Ubuntu14.04 ，所以对于部分还要进阶再升级的命令我没有跑，如果觉得不跑不安心的话可以回上面的原链接跑一遍（但是不排除以后会不会有坑）。
+3、原教程上面还是有写关于 Ubuntu14.04 的相关进阶升级命令，我觉得没必要就没有跑。如果觉得不跑不安心的话可以回上面的第一条原链接跑一遍（但是不排除以后会不会有坑）。
 
 
 
