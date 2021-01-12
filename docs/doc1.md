@@ -1,22 +1,24 @@
 ---
 id: doc1
-title: ubuntu18.04 ( 20 通用 )安装 REALSENSE D435 深度相机驱动
-sidebar_label: ubuntu18.04realsense D435驱动安装 realsense D435深度相机
+title: 如何为安装 D435 深度相机驱动
+sidebar_label: Ubuntu18.04realsense D435驱动安装 realsense D435深度相机
 ---
 
-## 亿些tips
-原版安装教程（官网）：
+## 写在前面：亿些tips
 
-https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md
+1、此教程适用于 Ubuntu18.04 / Ubuntu20.04 系统。
 
-因为原教程上面还是写的 ubuntu14.04 ，所以对于部分还要进阶再升级的命令我并没有跑，如果觉得不跑不安心的话可以回上面的原链接跑一遍（因为没跑也是能用的，但是不排除以后会不会有坑）
-这一篇是为了避免再次花费时间去研究原教程而写，因为要结合自身实际嘛。
-在跑完原教程后我还参考这个跑了一部分命令：
+2、原版安装教程（官网）：
 
-https://blog.csdn.net/sinat_36502563/article/details/89174282
+(1)
+## https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md
 
-因为我在跑完原链接之后完全不知道要怎么开始，因此去找到了第二个教程，命令有些类似，因此无法判断第二个链接的内容是不是必须跑的（我认为是必须），但是至少第二条跑完一部分之后我看到了一些结果。
-欢迎大佬指正！
+(2)
+## https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md
+
+
+3、因为原教程上面还是写的 Ubuntu14.04 ，所以对于部分还要进阶再升级的命令我没有跑，如果觉得不跑不安心的话可以回上面的原链接跑一遍（但是不排除以后会不会有坑）。
+
 
 
 ---
@@ -24,6 +26,7 @@ https://blog.csdn.net/sinat_36502563/article/details/89174282
 
 如果你的系统有一更新就炸的危险，建议再三考虑后再更新，或者只 update 不 upgrade 。
 
+原链接里有更新内核和重新引导的过程，因为是针对 Ubuntu14.04 的版本的我就没跑（个人觉得没必要，当然不排除以后会有坑）。
 
 
 ```
@@ -33,13 +36,12 @@ sudo apt-get upgrade
 ```
 
 
-原链接里有更新内核和重新引导的过程，因为是针对 ubuntu14.04 的版本的我就没跑（个人觉得没必要，当然不排除以后会有坑）
 
 ---
 
 ## 二、下载/克隆 librealsense github 存储库：
 
-这里我只跑了第一条orz没看到第二条上面写的最新版本，这里建议下第二条的版本。
+建议下第二条的版本
 
 
 ```
@@ -56,7 +58,7 @@ git clone https://github.com/IntelRealSense/librealsense.git
 
 2、安装构建 librealsense 二进制文件和受影响的内核模块所需的核心软件包：
 
-（原链接里的下面这一步我没跑，我直接跑了特定 18 的版本去了，目前没有坑）
+（原链接里的下面这一步我没跑，目前没有坑）
 
 
 ```
@@ -64,25 +66,14 @@ sudo apt-get install git libssl-dev libusb-1.0-0-dev pkg-config libgtk-3-dev
 ```
 
 
-下面这一步必须跑，这是特定于 ubuntu18 的软件包：
+（必须）特定于 Ubuntu18.04 的软件包：
 
 ```
 sudo apt-get install libglfw3-dev libgl1-mesa-dev libglu1-mesa-dev at
 ```
 
 
-
-原链接里有个 cmake 注意，同样没跑这一步目前没坑
-
-cmake 注意：某些 librealsense CMAKE 标志（例如 CUDA ）要求版本 3.8+ ，而该版本目前无法通过 apt Manager 获得 Ubuntu LTS 的支持。
-
-转到官方CMake网站下载并安装该应用程序
-
-原链接原话注意：关于图形子系统利用率的注意事项：如果您计划构建 SDK 的启用 OpenGL 的示例，则需要 glfw3,mesa 和 gtk 软件包。该 librealsense 核心库和一系列演示/工具是专为无头环境中进行部署。
-
-
-
-3、从 librealsense 根目录运行 Intel Realsense 权限脚本：
+3、从 librealsense 根目录运行 Intel RealSense 权限脚本：
 ```
 
 cd /home/joyce/github/librealsense    //cd进你的librealsense目录
@@ -110,15 +101,6 @@ cd /home/joyce/github/librealsense    //cd进你的librealsense目录
 ./scripts/patch-realsense-ubuntu-xenial-joule.sh
 ```
 
-上面的脚本将下载，修补和构建受真实感影响的内核模块（驱动程序）。
-
-然后它将尝试插入打补丁的模块，而不是活动模块。
-
-如果失败，将还原原始 uvc 模块。
-
-原链接有一个基于 Arch 的发行版还有一个带有 ubuntu16.04 的一个 Odroid XU4 图像，同样没跑目前没坑
-
-
 
 5、TM1特定
 
@@ -132,7 +114,7 @@ echo 'hid_sensor_custom' | sudo tee -a /etc/modules
 ---
 ## 四、编译 librealsense2 SDK
 
-原链接有一个在 ubuntu14.04 上将构建工具更新为 gcc-5 ，但是按道理 ubuntu18.04 的 gcc 已经是 gcc-11 了，所以我觉得没必要，没跑且目前没坑。
+原链接有一个在 Ubuntu14.04 上将构建工具更新为 gcc-5 ，但是按道理 Ubuntu18.04 的 gcc 已经是 gcc-11 了，所以我觉得没必要，没跑且目前没坑。
 
 ```
 mkdir build		//创建一个名为build的文件夹
@@ -182,9 +164,8 @@ sudo make install
 
 5、make -jX 并行编译，X 代表 cpu 核心可用数量
 
-原链接内容：
 
-（这增强可能显著提高构建时间。但副作用是，它可能导致低端平台随机挂起。
+这增强可能显著提高构建时间。但副作用是，它可能导致低端平台随机挂起。
 
 （注意：默认情况下，Linux 构建配置当前配置为使用 V4L2 后端。
 
@@ -227,12 +208,10 @@ sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/
 ```
 
 
-csdn 链接原话：至此，驱动包安装完成，使用以下命令可以打开 RealSense 的预览插件，连接相机即可查看设备输出。
-
 PS：某些电脑在安装过程中会出现 configure UEFI Secure Boot 的窗口，意思是开启了 UEFI Secure Boot ，而这会阻止你使用第三方的硬件驱动，不必更改这一模式，只需要按照窗口提示设定一个 Secure Boot 的密码确认，然后重启就会自动进入到 MOK 界面，选择第二项，yes之后输入刚才设定的密码，即可重新进入系统，此时 RealSense 的驱动也就安装好了。
 
 
-此时插入摄像头
+此时插入摄像头，输入：
 ```
 realsense-viewer
 ```
@@ -246,13 +225,11 @@ realsense-viewer
 ---
 ## 六、开始配置vscode
 
-1、因为我有用到 opencv，所以我有一个 cpp_properties.json 文件（其实就是放头文件的地方）
+1、因为我有用到 Opencv，所以我有一个 cpp_properties.json 文件（其实就是放头文件的地方）。
 
-我直接在原来的基础上加上了 librealsense2/
+我直接在原来的基础上加上了 librealsense2/ 。
 
-建议直接在你自己原来的配置文件中加，不要直接复制下面的，我下面给的只是我自己的，仅供参考
-
-下面就是我后面自己加上的这个 librealsense2 的库，其他的就是我原本的设置，后文的 task.json 也一样
+建议直接在你自己原来的配置文件的 includePath 参数里加，不要直接复制下面的，下面给的仅供参考。
 
 如果文件显示侧边栏没有（且你忘了怎么打开（划掉）：最上面的任务栏->运行（Debug）->打开配置（C）->会弹出来
 
@@ -283,11 +260,11 @@ realsense-viewer
 
 2、tasks.json文件
 
-找到 librealsense2.so 文件的目录，同样复制进去就行
+把 librealsense2.so 文件的目录复制到 “args” 参数里。
 
-如无例外，应该差不多是都在 /usr/local/lib 里面。
+如无例外，基本都在 /usr/local/lib 里面。
 
-如果文件显示侧边栏没有（且你忘了怎么打开（划掉）：ctrl+shift+P，然后输入：Task->配置任务（中文）或者Configure Task，一般都能找到。
+如果文件显示侧边栏没有（且你忘了怎么打开（划掉）： ctrl+shift+P ，然后输入： Task ->配置任务（中文）或者 Configure Task，一般都能找到。
 
 ```
 {
@@ -324,178 +301,13 @@ realsense-viewer
 ---
 
 
-然后下面是测试代码（后面更新一个短一点又能显示出来的
+测试代码：
 
-参考的是这条csdn链接里的参考链接：https://blog.csdn.net/weixin_43793181/article/details/103186041?ops_request_misc=%257B%2522request%255Fid%2522%253A%2522161000787716780258076340%2522%252C%2522scm%2522%253A%252220140713.130102334.pc%255Fblog.%2522%257D&request_id=161000787716780258076340&biz_id=0&utm_medium=distribute.pc_search_result.none-task-blog-2~blog~first_rank_v1~rank_blog_v1-2-103186041.pc_v1_rank_blog_v1&utm_term=%E7%9B%B8%E6%9C%BA&spm=1018.2226.3001.4450
-```
-{
-
-#include<iostream> 
-#include<sstream> 
-#include<iostream> 
-#include<fstream>
-#include<algorithm> 
-#include<string> 
-#include<opencv2/imgproc/imgproc.hpp>
-#include<opencv2/core/core.hpp>
-#include<opencv2/highgui/highgui.hpp>
-#include<librealsense2/rs.hpp>
-#include<librealsense2/rsutil.h>
-using namespace cv;
-using namespace std;
-using namespace rs2;
-
-//获取深度像素对应长度单位（米）的换算比例
-
-float get_depth_scale(device dev)
-{
-    for (sensor& sensor : dev.query_sensors()) //检查设备的传感器    
-    {    
-        if (depth_sensor dpt = sensor.as<depth_sensor>()) //检查传感器是否为深度传感器        
-        {        
-            return dpt.get_depth_scale();            
-        }        
-    }
-    throw runtime_error("Device does not have a depth sensor");    
-}
-
-//深度图对齐到彩色图函数
-Mat align_Depth2Color(Mat depth,Mat color,pipeline_profile profile)
-{
-    //声明数据流   
-    auto depth_stream=profile.get_stream(RS2_STREAM_DEPTH).as<video_stream_profile>();    
-    auto color_stream=profile.get_stream(RS2_STREAM_COLOR).as<video_stream_profile>();
-    
-    //获取内参   
-    const auto intrinDepth=depth_stream.get_intrinsics();    
-    const auto intrinColor=color_stream.get_intrinsics();
-    
-    //直接获取从深度摄像头坐标系到彩色摄像头坐标系的欧式变换矩阵    
-    rs2_extrinsics  extrinDepth2Color;    
-    rs2_error *error;    
-    rs2_get_extrinsics(depth_stream,color_stream,&extrinDepth2Color,&error);    
-    float pd_uv[2],pc_uv[2];   //平面点定义   
-    float Pdc3[3], Pcc3[3];     //空间点定义    
-    float depth_scale = get_depth_scale(profile.get_device());//获取深度像素与现实单位比例（D435默认1毫米）    
-    int y=0,x=0;    
-    Mat result=Mat(color.rows,color.cols,CV_16U,Scalar(0));//初始化结果
-    
-    //对深度图像遍历    
-    for(int row=0;row<depth.rows;row++)    
-    {    
-        for(int col=0;col<depth.cols;col++)        
-        {       
-            //将当前的(x,y)放入数组pd_uv，表示当前深度图的点            
-            pd_uv[0]=col;           
-            pd_uv[1]=row;
-            
-            //取当前点对应的深度值            
-            uint16_t depth_value=depth.at<uint16_t>(row,col);            
-            float depth_m=depth_value*depth_scale;           
-            rs2_deproject_pixel_to_point(Pdc3,&intrinDepth,pd_uv,depth_m);  //将深度图的像素点根据内参转换到深度摄像头坐标系下的三维点            
-            rs2_transform_point_to_point(Pcc3,&extrinDepth2Color,Pdc3);     //将深度摄像头坐标系的三维点转化到彩色摄像头坐标系下            
-            rs2_project_point_to_pixel(pc_uv,&intrinColor,Pcc3);            //将彩色摄像头坐标系下的深度三维点映射到二维平面上
-            
-            //取得映射后的（u,v)            
-            x=(int)pc_uv[0];          
-            y=(int)pc_uv[1];
-            
-            //最值限定            
-            x=x<0? 0:x;          
-            x=x>depth.cols-1 ? depth.cols-1:x;            
-            y=y<0? 0:y;            
-            y=y>depth.rows-1 ? depth.rows-1:y;            
-            result.at<uint16_t>(y,x)=depth_value;            
-        }        
-    }
-    return result;//返回一个与彩色图对齐了的深度信息图像    
-}
-
-void measure_distance(Mat &color,Mat depth,Size range,pipeline_profile profile)
-{ 
-
-    float depth_scale = get_depth_scale(profile.get_device()); //获取深度像素与现实单位比例（D435默认1毫米）
-    Point center(color.cols/2,color.rows/2);                   //自定义图像中心点    
-    Rect RectRange(center.x-range.width/2,center.y-range.height/2,    
-                   range.width,range.height);                  //自定义计算距离的范围
-                   
-    //遍历该范围
-    float distance_sum=0;    
-    int effective_pixel=0;    
-    for(int y=RectRange.y;y<RectRange.y+RectRange.height;y++)
-    {    
-        for(int x=RectRange.x;x<RectRange.x+RectRange.width;x++)
-        {
-            //如果深度图下该点像素不为0，表示有距离信息
-            if(depth.at<uint16_t>(y,x))
-            {
-                distance_sum+=depth_scale*depth.at<uint16_t>(y,x);
-                effective_pixel++;
-            }
-        }
-    }
-    cout<<"遍历完成，有效像素点:"<<effective_pixel<<endl;    
-    float effective_distance=(distance_sum/effective_pixel)*1000;    
-    cout<<"目标距离："<<effective_distance<<" mm"<<endl;   
-    char distance_str[30];   
-    sprintf(distance_str,"the distance is:%f mm",effective_distance);    
-    rectangle(color,RectRange,Scalar(0,0,255),2,8);    
-    putText(color,(string)distance_str,Point(color.cols*0.02,color.rows*0.05),    
-    FONT_HERSHEY_PLAIN,2,Scalar(0,255,0),2,8);    
-}
-
-int main()
-{
-    colorizer color_map;   // 帮助着色深度图像    
-    pipeline pipe;         //创建数据管道    
-    config pipe_config;    
-    pipe_config.enable_stream(RS2_STREAM_DEPTH,640,480,RS2_FORMAT_Z16,30);    
-    pipe_config.enable_stream(RS2_STREAM_COLOR,640,480,RS2_FORMAT_BGR8,30);    
-    pipeline_profile profile = pipe.start(pipe_config); //start()函数返回数据管道的profile    
-    while (1)    
-    {
-    
-        frameset frameset = pipe.wait_for_frames();  //堵塞程序直到新的一帧捕获        
-        //取深度图和彩色图        
-        frame color_frame = frameset.get_color_frame();       
-        frame depth_frame = frameset.get_depth_frame();        
-        frame depth_frame_1 = frameset.get_depth_frame().apply_filter(color_map);
-        
-        //获取宽高        
-        const int depth_w=depth_frame.as<video_frame>().get_width();       
-        const int depth_h=depth_frame.as<video_frame>().get_height();        
-        const int color_w=color_frame.as<video_frame>().get_width();        
-        const int color_h=color_frame.as<video_frame>().get_height();
-        
-        //创建OPENCV类型 并传入数据        
-        Mat depth_image(Size(depth_w,depth_h),        
-                        CV_16U,(void*)depth_frame.get_data(),Mat::AUTO_STEP);
-                        
-        Mat depth_image_1(Size(depth_w,depth_h),        
-                          CV_8UC3,(void*)depth_frame_1.get_data(),Mat::AUTO_STEP);
-                          
-        Mat color_image(Size(color_w,color_h),        
-                        CV_8UC3,(void*)color_frame.get_data(),Mat::AUTO_STEP);
-                        
-        //实现深度图对齐到彩色图
-        Mat result=align_Depth2Color(depth_image,color_image,profile);        
-        measure_distance(color_image,result,Size(40,40),profile);           
-        //自定义窗口大小
-        //显示        
-        imshow("depth_image",depth_image_1);        
-        imshow("color_image",color_image);        
-        //imshow("result",result);        
-        int key = waitKey(1);       
-        if(char(key) == 27)break;        
-    }
-    return 0;    
-}
-
-}
-```
+参考链接：
+## https://github.com/rcxxx/engineering_vision
 
 
-人间奇迹现场：![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210108082635.png)
+人间奇迹现场：![](https://image-up-1304421499.cos.ap-guangzhou.myqcloud.com/img/20210112132431.png)
 
 
 
