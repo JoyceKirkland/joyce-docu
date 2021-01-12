@@ -4,16 +4,14 @@ title: 如何为安装 D435 深度相机驱动
 sidebar_label: Ubuntu18.04realsense D435驱动安装 realsense D435深度相机
 ---
 
-## 写在前面：亿些tips
+## 亿些tips：
 
 1、此教程适用于 Ubuntu18.04 / Ubuntu20.04 系统。
 
 2、原版安装教程（官网）：
 
-(1)
 ## https://github.com/IntelRealSense/librealsense/blob/master/doc/installation.md
 
-(2)
 ## https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md
 
 
@@ -223,7 +221,7 @@ realsense-viewer
 
 
 ---
-## 六、开始配置vscode
+## 六、配置vscode相关变量
 
 1、因为我有用到 Opencv，所以我有一个 cpp_properties.json 文件（其实就是放头文件的地方）。
 
@@ -260,7 +258,7 @@ realsense-viewer
 
 2、tasks.json文件
 
-把 librealsense2.so 文件的目录复制到 “args” 参数里。
+把 librealsense2.so 的文件目录复制到 『args』 参数里。
 
 如无例外，基本都在 /usr/local/lib 里面。
 
