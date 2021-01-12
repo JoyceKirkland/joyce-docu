@@ -206,7 +206,7 @@ sudo add-apt-repository "deb http://realsense-hw-public.s3.amazonaws.com/Debian/
 ```
 
 
-PS：某些电脑在安装过程中会出现 configure UEFI Secure Boot 的窗口，意思是开启了 UEFI Secure Boot ，而这会阻止你使用第三方的硬件驱动，不必更改这一模式，只需要按照窗口提示设定一个 Secure Boot 的密码确认，然后重启就会自动进入到 MOK 界面，选择第二项，yes之后输入刚才设定的密码，即可重新进入系统，此时 RealSense 的驱动也就安装好了。
+PS：某些电脑在安装过程中会出现 configure UEFI Secure Boot 的窗口，意思是开启了 UEFI Secure Boot ，而这会阻止你使用第三方的硬件驱动，不必更改这一模式，只需要按照窗口提示设定一个 Secure Boot 的密码确认，然后重启就会自动进入到 MOK 界面，选择第二项， yes 之后输入刚才设定的密码，即可重新进入系统，此时 RealSense 的驱动也就安装好了。
 
 
 此时插入摄像头，输入：
@@ -223,7 +223,7 @@ realsense-viewer
 ---
 ## 六、配置vscode相关变量
 
-1、因为我有用到 Opencv，所以我有一个 cpp_properties.json 文件（其实就是放头文件的地方）。
+1、因为我有用到 Opencv ，所以我有一个 cpp_properties.json 文件（其实就是放头文件的地方）。
 
 我直接在原来的基础上加上了 librealsense2/ 。
 
